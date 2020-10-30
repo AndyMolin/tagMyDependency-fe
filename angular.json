@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tag-my-dependency-fe"
+    }
+  },
+  "defaultProject": "tag-my-dependency-fe",
+  "cli": {
+    "analytics": false
+  }
 }
