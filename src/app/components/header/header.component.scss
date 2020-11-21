@@ -9,6 +9,66 @@
   width: 1152px;
 }
 
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] .navbar-item[_ngcontent-bou-c1] .navbar-logo[_ngcontent-bou-c1] {
+  width: 150px;
+}
+.navbar>.container .navbar-brand .navbar-item .navbar-logo {
+  width: 150px;
+}
+.flex-spacer[_ngcontent-bou-c1] {
+  flex-grow: 1;
+}
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] .navbar-item[_ngcontent-bou-c1] ~ a[_ngcontent-bou-c1] {
+  color: #3b4d96;
+}
+
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] .navbar-item[_ngcontent-bou-c1] {
+  align-items: center;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1.5;
+  padding: .5rem .75rem;
+  position: relative;
+}
+
+.navbar>.container .navbar-brand .navbar-item~a {
+  color: #3b4d96;
+}
+
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] {
+  align-items: stretch;
+  flex-shrink: 0;
+  min-height: 3.25rem;
+  width: 100%;
+  display: flex;
+}
+
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] {
+  margin-left: -1rem;
+}
+
+.navbar>.container .navbar-brand {
+  align-items: stretch;
+  flex-shrink: 0;
+  min-height: 3.25rem;
+  width: 100%;
+  display: flex;
+}
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] .navbar-item[_ngcontent-bou-c1] {
+  align-items: center;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1.5;
+  padding: .5rem .75rem;
+  position: relative;
+}
+
 .navbar-brand[_ngcontent-bou-c1] {
   align-items: stretch;
   flex-shrink: 0;
@@ -26,4 +86,14 @@ navbar[_ngcontent-bou-c1] {
 
 .navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] .navbar-item[_ngcontent-bou-c1] .navbar-logo[_ngcontent-bou-c1] {
   width: 150px;
+}
+
+.navbar>.container .navbar-brand .navbar-item {
+  align-items: center;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1.5;
+  padding: .5rem .75rem;
+  position: relative;
 }
