@@ -8,6 +8,8 @@ import {environment} from '../environments/environment';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AuthGuard} from './providers/auth-guard.service';
 import {HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -26,7 +28,9 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
