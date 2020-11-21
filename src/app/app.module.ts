@@ -10,6 +10,8 @@ import {AuthGuard} from './providers/auth-guard.service';
 import {HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -30,13 +32,15 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     KeycloakAngularModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthGuard,

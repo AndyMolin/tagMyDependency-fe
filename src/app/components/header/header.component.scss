@@ -1,0 +1,29 @@
+.navbar[_ngcontent-wxf-c1] {
+  min-height: 3.25rem;
+  position: relative;
+  z-index: 30;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.25);
+}
+.container[_ngcontent-bou-c1] {
+  max-width: 1152px;
+  width: 1152px;
+}
+
+.navbar-brand[_ngcontent-bou-c1] {
+  align-items: stretch;
+  flex-shrink: 0;
+  min-height: 3.25rem;
+  width: 100%;
+  display: flex;
+}
+
+navbar[_ngcontent-bou-c1] {
+  min-height: 3.25rem;
+  position: relative;
+  z-index: 30;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.25);
+}
+
+.navbar[_ngcontent-bou-c1] > .container[_ngcontent-bou-c1] .navbar-brand[_ngcontent-bou-c1] .navbar-item[_ngcontent-bou-c1] .navbar-logo[_ngcontent-bou-c1] {
+  width: 150px;
+}
