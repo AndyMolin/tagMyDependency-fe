@@ -1,22 +1,49 @@
-<div _ngcontent-bou-c10="" class="home-search" _nghost-bou-c4="">
+<div class="home-search">
+  <div class="search">
+    <div class="search-form" fxlayout="" style="flex-direction: row; box-sizing: border-box; display: flex;">
+      <!--      <mat-form-field appearance="fill" class="mat-form-field ng-tns-c5-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-pristine ng-valid ng-touched">-->
+      <!--        <div class="mat-form-field-wrapper">-->
+      <!--          <div class="mat-form-field-flex">-->
+      <!--            <div class="mat-form-field-infix">-->
+      <!--              <input class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched" matinput="" placeholder="Search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" id="mat-input-1" aria-invalid="false" aria-required="false">-->
 
-  <div _ngcontent-bou-c4="" class="search">
-    <div _ngcontent-bou-c4="" class="search-form" fxlayout="" style="flex-direction: row; box-sizing: border-box; display: flex;">
+      <!--              <mat-autocomplete class="">&lt;!&ndash;&ndash;&gt;</mat-autocomplete>-->
 
-      <mat-form-field _ngcontent-bou-c4="" class="mat-form-field ng-tns-c5-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-pristine ng-valid ng-touched mat-form-field-should-float"><div class="mat-form-field-wrapper"><div class="mat-form-field-flex"><!----><!----><div class="mat-form-field-infix">
+      <!--              <span class="mat-form-field-label-wrapper">-->
+      <!--                <label class="mat-form-field-label ng-tns-c5-1 ng-star-inserted mat-empty mat-form-field-empty" id="mat-form-field-label-3" for="mat-input-1" aria-owns="mat-input-1">-->
+      <!--                  <span class="ng-tns-c5-1 ng-star-inserted">Search</span>-->
+      <!--                </label>-->
+      <!--              </span>-->
+      <!--            </div>-->
+      <!--            <div class="mat-form-field-suffix ng-tns-c5-1 ng-star-inserted">-->
+      <!--              <mat-icon class="mat-icon notranslate mat-primary material-icons" color="primary" matsuffix="" role="img" aria-hidden="true">-->
+      <!--                search-->
+      <!--              </mat-icon>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--          <div class="mat-form-field-underline ng-tns-c5-1 ng-star-inserted">-->
+      <!--            <span class="mat-form-field-ripple"></span>-->
+      <!--          </div>-->
+      <!--          <div class="mat-form-field-subscript-wrapper">-->
+      <!--            <div class="mat-form-field-hint-wrapper ng-tns-c5-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">-->
+      <!--              <div class="mat-form-field-hint-spacer"></div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </mat-form-field>-->
 
-        <input _ngcontent-bou-c4="" class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched" matinput="" placeholder="Search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" id="mat-input-1" aria-invalid="false" aria-required="false">
-
-        <mat-autocomplete _ngcontent-bou-c4="" class=""><!----></mat-autocomplete>
-
-
-
-
-
-        <span class="mat-form-field-label-wrapper"><!----><label class="mat-form-field-label ng-tns-c5-1 ng-star-inserted" id="mat-form-field-label-3" for="mat-input-1" aria-owns="mat-input-1"><!----><!----><span class="ng-tns-c5-1 ng-star-inserted">Search</span><!----><!----></label></span></div><!----><div class="mat-form-field-suffix ng-tns-c5-1 ng-star-inserted"><!----><mat-icon _ngcontent-bou-c4="" class="mat-icon notranslate mat-primary material-icons" color="primary" matsuffix="" role="img" aria-hidden="true">search
-      </mat-icon></div></div><!----><div class="mat-form-field-underline ng-tns-c5-1 ng-star-inserted"><span class="mat-form-field-ripple"></span></div><div class="mat-form-field-subscript-wrapper"><!----><!----><div class="mat-form-field-hint-wrapper ng-tns-c5-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!----><div class="mat-form-field-hint-spacer"></div></div></div></div></mat-form-field>
+      <form [formGroup]="searchForm" (ngSubmit)="searchButton()">
+        <mat-form-field appearance="fill" class="mat-form-field ng-tns-c5-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-pristine ng-valid ng-touched full-width">
+          <mat-label>Search</mat-label>
+          <input matInput formControlName="query" style="width: 90%; float:left; ">
+          <div class="mat-form-field-suffix ng-tns-c5-1 ng-star-inserted" style="width: 5%;float: right;">
+            <mat-icon (click)="searchButton()" class="mat-icon notranslate mat-primary material-icons" color="primary" matsuffix="" role="img" aria-hidden="true">
+              search
+            </mat-icon>
+          </div>
+        </mat-form-field>
+      </form>
 
     </div>
-
   </div>
 </div>

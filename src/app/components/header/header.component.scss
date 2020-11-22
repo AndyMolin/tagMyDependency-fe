@@ -10,11 +10,9 @@
 }
 
 .navbar > .container .navbar-brand .navbar-item .navbar-logo {
-  width: 150px;
+  width: 100px;
 }
-.navbar>.container .navbar-brand .navbar-item .navbar-logo {
-  width: 150px;
-}
+
 .flex-spacer {
   flex-grow: 1;
 }
@@ -84,8 +82,8 @@
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.25);
 }
 
-.navbar > .container .navbar-brand .navbar-item .navbar-logo {
-  width: 150px;
+.navbar > .container .navbar-brand  .navbar-github {
+  width: 20px;
 }
 
 .navbar>.container .navbar-brand .navbar-item {
@@ -102,3 +100,17 @@
   float: right;
   align-self: center;
 }
+
+.navbar > .container .navbar-brand .navbar-github {
+  align-items: center;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  line-height: 1.5;
+  padding: .5rem .75rem;
+  position: relative;
+}
+.flex-spacer {
+  flex-grow: 1;
+}
+

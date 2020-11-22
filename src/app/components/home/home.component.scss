@@ -1,38 +1,49 @@
 .home-search {
   width: 100%;
   max-width: 600px;
+  margin-left: 500px;
+}
+//
+//div.search[_ngcontent-bml-c4] .search-form[_ngcontent-bml-c4] {
+//  text-align: center;
+//  flex-direction: row;
+//  box-sizing: border-box;
+//  display: flex;
+//}
+//
+//div.search[_ngcontent-bml-c4] .search-form[_ngcontent-bml-c4] > *[_ngcontent-bml-c4] {
+//  transition: .5s;
+//  width: 50%;
+//}
+
+.search-form {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
 }
 
-div.search[_ngcontent-bou-c4] .search-form[_ngcontent-bou-c4] {
-  text-align: center;
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.125;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-div.search[_ngcontent-bou-c4] .search-form[_ngcontent-bou-c4] > *[_ngcontent-bou-c4] {
-  transition: .5s;
-  width: 50%;
-}
 .home-search div.search .search-form>* {
   width: 100%!important;
 }
 
-.mat-form-field[_ngcontent-bou-c4] {
-  font-size: inherit;
-  font-weight: 400;
-  line-height: 1.125;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.mat-form-field[_ngcontent-bou-c4] {
-  font-size: inherit;
-  font-weight: 400;
-  line-height: 1.125;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-.mat-form-field-appearance-legacy .mat-form-field-wrapper {
-  padding-bottom: 1.25em;
-}
 .mat-form-field-wrapper {
   position: relative;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.25em;
 }
 
 .mat-form-field-flex {
@@ -42,11 +53,9 @@ div.search[_ngcontent-bou-c4] .search-form[_ngcontent-bou-c4] > *[_ngcontent-bou
   width: 100%;
 }
 
-mat-form-field-appearance-legacy .mat-form-field-infix {
-  padding: .4375em 0;
-}
-
 .mat-form-field-infix {
+  padding: .5em 0;
+  border-top: .84375em solid transparent;
   display: block;
   position: relative;
   flex: auto;
@@ -54,27 +63,56 @@ mat-form-field-appearance-legacy .mat-form-field-infix {
   width: 180px;
 }
 
-.mat-form-field-infix {
-  padding: .5em 0;
-  border-top: .84375em solid transparent;
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: .4375em 0;
 }
 
-.cdk-text-field-autofill-monitored[_ngcontent-bou-c4]:not(:-webkit-autofill) {
-  -webkit-animation-name: cdk-text-field-autofill-end;
-  animation-name: cdk-text-field-autofill-end;
+.mat-form-field-prefix, .mat-form-field-suffix {
+  white-space: nowrap;
+  flex: none;
+  position: relative;
 }
 
-input.mat-input-element[_ngcontent-bou-c4] {
-  margin-top: -.0625em;
+.mat-form-field-underline {
+  bottom: 1.34375em;
 }
 
-.mat-form-field[_ngcontent-bou-c4] {
-  font-size: inherit;
-  font-weight: 400;
-  line-height: 1.125;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+.mat-form-field-underline {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  transform: scaleY(1.0001);
 }
 
-div.search[_ngcontent-bou-c4] .search-form[_ngcontent-bou-c4] {
-  text-align: center;
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  bottom: 1.25em;
+  background-color: rgba(0,0,0,.42);
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 1px;
+}
+
+.mat-form-field-ripple {
+  background-color: rgba(0,0,0,.87);
+}
+
+.mat-form-field-ripple {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform-origin: 50%;
+  transform: scaleX(.5);
+  opacity: 0;
+  transition: background-color .3s cubic-bezier(.55,0,.55,.2);
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-ripple {
+  top: 0;
+  height: 2px;
+  overflow: hidden;
+}
+
+.full-width {
+  width: 100%;
 }
