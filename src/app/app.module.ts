@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {CollapseContentDirective, CollapseDirective, CollapseItemDirective} from './collapse.directive';
+import {MatButtonModule} from '@angular/material/button';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -56,7 +57,8 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [
     AuthGuard,
