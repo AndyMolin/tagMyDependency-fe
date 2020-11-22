@@ -1,11 +1,7 @@
 .home-search {
   width: 100%;
-}
-
-.search {
-  margin: auto;
-  width: 50%;
-  min-width: 300px;
+  max-width: 600px;
+  margin-left: 500px;
 }
 //
 //div.search[_ngcontent-bml-c4] .search-form[_ngcontent-bml-c4] {
@@ -43,8 +39,8 @@
 }
 
 .mat-form-field-wrapper {
-   position: relative;
- }
+  position: relative;
+}
 
 .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 1.25em;
@@ -185,4 +181,9 @@ tr.dependency-element-row:not(.dependency-expanded-row):active {
   float: right;
   align-self: center;
   margin-left: 10px;
+}
+
+.dependency-container {
+  display: flex;
+  flex-direction: column;
 }

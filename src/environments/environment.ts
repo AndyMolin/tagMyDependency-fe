@@ -12,8 +12,8 @@ const keycloakConfig: KeycloakConfig = {
 };
 
 const keycloakInitOptions: KeycloakInitOptions = {
-  // onLoad: 'login-required',
-  // checkLoginIframe: false,
+  onLoad: 'check-sso',
+  checkLoginIframe: false,
   pkceMethod: 'S256'
 };
 

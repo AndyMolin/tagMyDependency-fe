@@ -1,43 +1,13 @@
 <div class="home-search">
   <div class="search">
     <div class="search-form" fxlayout="" style="flex-direction: row; box-sizing: border-box; display: flex;">
-<!--      <mat-form-field appearance="fill" class="mat-form-field ng-tns-c5-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-pristine ng-valid ng-touched">-->
-<!--        <div class="mat-form-field-wrapper">-->
-<!--          <div class="mat-form-field-flex">-->
-<!--            <div class="mat-form-field-infix">-->
-<!--              <input class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-valid ng-touched" matinput="" placeholder="Search" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-haspopup="true" id="mat-input-1" aria-invalid="false" aria-required="false">-->
 
-<!--              <mat-autocomplete class="">&lt;!&ndash;&ndash;&gt;</mat-autocomplete>-->
-
-<!--              <span class="mat-form-field-label-wrapper">-->
-<!--                <label class="mat-form-field-label ng-tns-c5-1 ng-star-inserted mat-empty mat-form-field-empty" id="mat-form-field-label-3" for="mat-input-1" aria-owns="mat-input-1">-->
-<!--                  <span class="ng-tns-c5-1 ng-star-inserted">Search</span>-->
-<!--                </label>-->
-<!--              </span>-->
-<!--            </div>-->
-<!--            <div class="mat-form-field-suffix ng-tns-c5-1 ng-star-inserted">-->
-<!--              <mat-icon class="mat-icon notranslate mat-primary material-icons" color="primary" matsuffix="" role="img" aria-hidden="true">-->
-<!--                search-->
-<!--              </mat-icon>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mat-form-field-underline ng-tns-c5-1 ng-star-inserted">-->
-<!--            <span class="mat-form-field-ripple"></span>-->
-<!--          </div>-->
-<!--          <div class="mat-form-field-subscript-wrapper">-->
-<!--            <div class="mat-form-field-hint-wrapper ng-tns-c5-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);">-->
-<!--              <div class="mat-form-field-hint-spacer"></div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </mat-form-field>-->
-
-      <form [formGroup]="searchForm" (ngSubmit)="searchButton()">
+      <form [formGroup]="searchForm" (ngSubmit)="updateQuery()">
           <mat-form-field appearance="fill" class="mat-form-field ng-tns-c5-1 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-pristine ng-valid ng-touched full-width">
             <mat-label>Search</mat-label>
-            <input matInput formControlName="query" style="width: 90%; float:left; ">
+            <input matInput formControlName="query" style="width: 90%; float:left; line-height: 1.5rem">
             <div class="mat-form-field-suffix ng-tns-c5-1 ng-star-inserted" style="width: 5%;float: right;">
-              <mat-icon (click)="searchButton()" class="mat-icon notranslate mat-primary material-icons" color="primary" matsuffix="" role="img" aria-hidden="true">
+              <mat-icon (click)="updateQuery()" class="mat-icon notranslate mat-primary material-icons" color="primary" matsuffix="" role="img" aria-hidden="true">
                 search
               </mat-icon>
             </div>
@@ -48,31 +18,31 @@
   </div>
 </div>
 
-<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8" style="width: 1000px; margin-left: 300px;">
+<table *ngIf="dependencyList && dependencyList.length" mat-table [dataSource]="dependencyList" multiTemplateDataRows class="mat-elevation-z8" style="width: 100%;">
 
 
-  <!-- Group ID Column -->
-  <ng-container matColumnDef="group_id">
-    <th mat-header-cell *matHeaderCellDef> Group ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.group_id}} </td>
-  </ng-container>
-
-  <!-- Artifact ID Column -->
-  <ng-container matColumnDef="artifact_id">
-    <th mat-header-cell *matHeaderCellDef> Artifact ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.artifact_id}} </td>
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <!-- Latest Version Column -->
-  <ng-container matColumnDef="latest_version">
+  <ng-container matColumnDef="latestVersion">
     <th mat-header-cell *matHeaderCellDef> Latest Version </th>
-    <td mat-cell *matCellDef="let element"> {{element.latest_version}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.latestVersion}} </td>
   </ng-container>
 
-  <!-- Updated Column -->
-  <ng-container matColumnDef="updated">
-    <th mat-header-cell *matHeaderCellDef> Updated </th>
-    <td mat-cell *matCellDef="let element"> {{element.updated}} </td>
+  <!-- Provider Column -->
+  <ng-container matColumnDef="provider">
+    <th mat-header-cell *matHeaderCellDef> Provider </th>
+    <td mat-cell *matCellDef="let element"> {{element.provider}} </td>
+  </ng-container>
+
+  <!-- URL Column -->
+  <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef> URL </th>
+    <td mat-cell *matCellDef="let element"> <a [href] = element.url>{{element.url}}</a> </td>
   </ng-container>
 
   <ng-container matColumnDef="add">
@@ -87,7 +57,7 @@
     <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
       <div class="row dependency-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
         Tag Name:
-        <form [formGroup]="addTagForm" (ngSubmit)="addTag()">
+        <form [formGroup]="addTagForm" (ngSubmit)="addTag(element)">
 <!--            <input matInput formControlName="query" style="width: 90%; float:left; ">-->
             <input class="add-tag-input" type="text" formControlName="tag_name">
             <div class="add-tag-button-container">
@@ -106,3 +76,7 @@
       [class.student-expanded-row]="element.isExpanded"></tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="dependency-detail-row"></tr>
 </table>
+
+<mat-paginator [pageSize]="pageSize" [pageIndex]="pageNumber" (page)="changePage($event)"  [length]="numberOfResults">
+
+</mat-paginator>

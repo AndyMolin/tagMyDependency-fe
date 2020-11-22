@@ -24,6 +24,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import {MatListModule} from '@angular/material/list';
+import { ViewTagComponent } from './components/view-tag/view-tag.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -50,7 +52,8 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     CollapseContentDirective,
     CollapseItemDirective,
     ProfileComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    ViewTagComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     MatTableModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule
   ],
   providers: [
     AuthGuard,

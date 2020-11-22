@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpService.get('demo').subscribe(value => this.title = value.greeting);
+    //this.httpService.get('demo').subscribe(value => this.title = value.greeting);
   }
 
-  logout(): void {
+  /*logout(): void {
     this.keycloakService.logout().then(value => console.log('logged out'));
   }
 
@@ -29,5 +29,5 @@ export class AppComponent implements OnInit {
 
   login(): void {
     this.keycloakService.login();
-  }
+  }*/
 }

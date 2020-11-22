@@ -8,13 +8,14 @@ import {KeycloakService} from 'keycloak-angular';
 })
 export class HeaderComponent implements OnInit {
 
-  isLoggedIn = false;
 
   @Output() public sidenavToggle = new EventEmitter();
 
   constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
+    this.keycloakService.isLoggedIn().then(console.log);
+
   }
 
 
@@ -22,9 +23,9 @@ export class HeaderComponent implements OnInit {
     this.keycloakService.logout().then(value => console.log('logged out'));
   }
 
-  profile(): void {
+  /*profile(): void {
     window.open(this.keycloakService.getKeycloakInstance().createAccountUrl(), '_blank');
-  }
+  }*/
 
   login(): void {
     this.keycloakService.login();
@@ -32,6 +33,10 @@ export class HeaderComponent implements OnInit {
 
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
+  }
+
+  public isLoggedIn(): boolean {
+    return this.keycloakService.getKeycloakInstance().authenticated;
   }
 
 }

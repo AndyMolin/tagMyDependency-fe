@@ -1,27 +1,26 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <button *ngIf="isLoggedIn()" class="navbar-item header-menu-button" mat-icon-button (click)="onToggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a class="navbar-item" href="http://localhost:4200/#/results">
+        <img src="../../../assets/images/tmd-logo.png" height="100">
+      </a>
 
-<div>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-brand">
-        <button class="navbar-item header-menu-button" mat-icon-button (click)="onToggleSidenav()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <a class="navbar-item" href="http://localhost:4200/#/home">
-          <img src="../../../assets/images/tmd-logo.png" height="100">
-        </a>
-        <i class="fa fa-key" aria-hidden="true"></i>
-        <div class="flex-spacer" ></div>
-
-        <div class="flex-spacer"></div>
-        <div *ngIf="!isLoggedIn" class="login-button-container">
+      <div class="profile-info">
+        <div *ngIf="!isLoggedIn()" class="login-button-container">
           <button class="login-button" (click)="login()">Login</button>
         </div>
-        <div *ngIf="isLoggedIn" class="login-button-container">
-          <button class="login-button" (click)="logout()">Logout</button>
+        <div *ngIf="isLoggedIn()" class="login-button-container">
+          <p>Hello, {{this.keycloakService.getUsername()}}</p>
+          <div class="login-button-wrapper">
+            <button class="login-button" (click)="logout()">Logout</button>
+          </div>
         </div>
-
       </div>
+
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
 

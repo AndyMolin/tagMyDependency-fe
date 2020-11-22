@@ -4,10 +4,6 @@
   z-index: 30;
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.25);
 }
-.container {
-  max-width: 1152px;
-  width: 1152px;
-}
 
 .navbar > .container .navbar-brand .navbar-item .navbar-logo {
   width: 100px;
@@ -44,10 +40,6 @@
   min-height: 3.25rem;
   width: 100%;
   display: flex;
-}
-
-.navbar > .container .navbar-brand {
-  margin-left: 200px;
 }
 
 .navbar>.container .navbar-brand {
@@ -123,4 +115,17 @@
 
 .header-menu-button {
   align-self: center;
+}
+
+.profile-info {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 8px;
+}
+
+.login-button-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
 }
