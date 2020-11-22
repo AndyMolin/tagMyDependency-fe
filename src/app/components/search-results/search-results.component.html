@@ -78,7 +78,7 @@
   <ng-container matColumnDef="add">
     <th mat-header-cell *matHeaderCellDef> </th>
     <td mat-cell *matCellDef="let element">
-      <a mat-button href="javascript:void('')" (click)="element.isExpanded = !element.isExpanded">Add something</a>
+      <a mat-button href="javascript:void('')" (click)="element.isExpanded = !element.isExpanded">Add Private Tag</a>
     </td>
   </ng-container>
 
@@ -86,7 +86,16 @@
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
       <div class="row dependency-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
-        test
+        Tag Name:
+        <form [formGroup]="addTagForm" (ngSubmit)="addTag()">
+<!--            <input matInput formControlName="query" style="width: 90%; float:left; ">-->
+            <input class="add-tag-input" type="text" formControlName="tag_name">
+            <div class="add-tag-button-container">
+              <button type="submit" class="add-tag-button">
+                Add
+              </button>
+            </div>
+        </form>
       </div>
 
     </td>

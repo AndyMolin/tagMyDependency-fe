@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from '../../providers/http.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
@@ -37,22 +37,32 @@ const ELEMENT_DATA: Dependency[] = [
 export class SearchResultsComponent implements OnInit {
 
   searchForm: FormGroup;
+  addTagForm: FormGroup;
 
   displayedColumns: string[] = ['group_id', 'artifact_id', 'latest_version', 'updated', 'add'];
   dataSource = ELEMENT_DATA;
   test: any;
+  query: string;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private httpService: HttpService) { }
+              private httpService: HttpService,
+              private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.query = params.query;
+    });
+  }
 
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({
       query: ['']
     });
-    // this.httpService.get('public/dependency').subscribe(
-    //   value => this.test = value,
-    //   error => console.log('Error: ' + error));
+    this.addTagForm = this.formBuilder.group({
+      tag_name: ['']
+    });
+    this.httpService.get(`public/dependency/search?query=${this.query}&providers=[]`).subscribe(
+      value => this.test = value,
+      error => console.log('Error: ' + error));
   }
 
   // tslint:disable-next-line:typedef
@@ -61,6 +71,14 @@ export class SearchResultsComponent implements OnInit {
       return;
     }
     this.redirectTo('/results', this.searchForm.controls.query.value);
+  }
+
+  addTag() {
+    if (this.addTagForm.controls.tag_name.value === '') {
+      return;
+    }
+    let tag = this.addTagForm.controls.tag_name.value;
+    // ADD_TAG POST
   }
 
   // tslint:disable-next-line:typedef
