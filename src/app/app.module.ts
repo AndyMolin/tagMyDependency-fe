@@ -12,6 +12,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {CollapseContentDirective, CollapseDirective, CollapseItemDirective} from './collapse.directive';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -33,7 +40,10 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     AppComponent,
     HeaderComponent,
     SearchResultsComponent,
-    HomeComponent
+    HomeComponent,
+    CollapseDirective,
+    CollapseContentDirective,
+    CollapseItemDirective
   ],
   imports: [
     BrowserModule,
@@ -41,6 +51,12 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     KeycloakAngularModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [
     AuthGuard,
