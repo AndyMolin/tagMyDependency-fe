@@ -20,6 +20,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {CollapseContentDirective, CollapseDirective, CollapseItemDirective} from './collapse.directive';
 import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
+import {MatListModule} from '@angular/material/list';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -44,7 +48,9 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     HomeComponent,
     CollapseDirective,
     CollapseContentDirective,
-    CollapseItemDirective
+    CollapseItemDirective,
+    ProfileComponent,
+    SidenavListComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,9 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     MatInputModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [
     AuthGuard,
