@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     if (this.searchForm.controls.query.value === '') {
       return;
     }
-    this.redirectTo('/home', this.searchForm.controls.query.value);
+    this.redirectTo('/results', this.searchForm.controls.query.value);
   }
 
   redirectTo(uri: string, query: string) {
