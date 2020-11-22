@@ -8,6 +8,8 @@ import {KeycloakService} from 'keycloak-angular';
 })
 export class HeaderComponent implements OnInit {
 
+  isLoggedIn = false;
+
   constructor(private keycloakService: KeycloakService) { }
 
   ngOnInit(): void {
@@ -24,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   login(): void {
     this.keycloakService.login();
-
   }
 
 }

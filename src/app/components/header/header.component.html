@@ -1,34 +1,21 @@
-
-<div _ngcontent-wxf-c0="" _nghost-wxf-c1="">
-  <nav _ngcontent-wxf-c1="" class="navbar">
-
-    <div _ngcontent-wxf-c1="" class="container">
-
-      <div _ngcontent-wxf-c1="" class="navbar-brand">
-
-        <a _ngcontent-wxf-c1="" class="navbar-item" href="http://localhost:4200/#/home" target="_blank">
-
-          <img _ngcontent-wxf-c1="" class="navbar-logo" src="assets/images/logo.svg?v=1">
-
+<div>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://localhost:4200/#/home" target="_blank">
+          <img src="../../../assets/images/tmd-logo.png" height="100">
         </a>
+        <i class="fa fa-key" aria-hidden="true"></i>
 
-
-
-
-        <div _ngcontent-wxf-c1="" class="flex-spacer"></div>
-
-        <a _ngcontent-wxf-c1="" class="navbar-item navbar-nav-link" href="https://github.com" target="_blank">
-          <img _ngcontent-wxf-c1="" class="navbar-github-logo" src="/assets/images/github-menu-item.svg?v=1">&nbsp;
-          <!---->GitHub
-        </a>
+        <div class="flex-spacer"></div>
+        <div *ngIf="!isLoggedIn" class="login-button">
+          <button (click)="login()">Login</button>
+        </div>
+        <div *ngIf="isLoggedIn" class="login-button">
+          <button (click)="logout()">Logout</button>
+        </div>
 
       </div>
-
     </div>
-
   </nav>
-
-  <div _ngcontent-wxf-c1="" class="sub-nav">
-
-  </div>
 </div>
