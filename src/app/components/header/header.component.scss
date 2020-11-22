@@ -96,9 +96,16 @@
   position: relative;
 }
 
-.login-button {
+.login-button-container {
   float: right;
   align-self: center;
+}
+
+.login-button {
+  background-color: rgba(0,0,0,.04);
+  border-color: rgba(0,0,0,.04);
+  height: 35px;
+  width: 90px;
 }
 
 .navbar > .container .navbar-brand .navbar-github {
@@ -114,3 +121,6 @@
   flex-grow: 1;
 }
 
+.header-menu-button {
+  align-self: center;
+}

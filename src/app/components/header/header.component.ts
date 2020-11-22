@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {KeycloakService} from 'keycloak-angular';
 
 @Component({
@@ -9,6 +9,8 @@ import {KeycloakService} from 'keycloak-angular';
 export class HeaderComponent implements OnInit {
 
   isLoggedIn = false;
+
+  @Output() public sidenavToggle = new EventEmitter();
 
   constructor(private keycloakService: KeycloakService) { }
 
@@ -26,6 +28,10 @@ export class HeaderComponent implements OnInit {
 
   login(): void {
     this.keycloakService.login();
+  }
+
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
   }
 
 }
