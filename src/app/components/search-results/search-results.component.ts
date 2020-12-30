@@ -5,6 +5,7 @@ import {HttpService} from '../../providers/http.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {KeycloakService} from 'keycloak-angular';
 import {PageEvent} from '@angular/material/paginator';
+import {DependencyService} from '../../providers/dependency.service';
 
 
 export interface Dependency {
@@ -45,7 +46,8 @@ export class SearchResultsComponent implements OnInit {
               private router: Router,
               private httpService: HttpService,
               private route: ActivatedRoute,
-              private keycloakService: KeycloakService) {
+              private keycloakService: KeycloakService,
+              private dependencyService: DependencyService) {
   }
 
   ngOnInit(): void {
@@ -73,7 +75,7 @@ export class SearchResultsComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   searchButton() {
-    this.httpService.get(`public/dependency/search?query=${this.query}&providers=maven&pageSize=${this.pageSize}&pageNumber=${this.pageNumber}`).subscribe(
+    this.httpService.get(`public/dependency/search?query=${this.query}&providers=maven,npm&pageSize=${this.pageSize}&pageNumber=${this.pageNumber}`).subscribe(
       value => {
         this.numberOfResults = value.total;
         this.dependencyList = value.elements;

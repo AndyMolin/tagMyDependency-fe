@@ -2,7 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {KeycloakService} from 'keycloak-angular';
 
 @Component({
-  selector: 'app-header',
+  selector: 'tmd-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

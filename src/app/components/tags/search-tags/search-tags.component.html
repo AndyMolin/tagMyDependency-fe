@@ -1,0 +1,13 @@
+<div style="display: flex; justify-content: center">
+  <form>
+    <mat-form-field>
+      <mat-label>Query</mat-label>
+      <input type="text" matInput
+             [(ngModel)]="query" [ngModelOptions]="{standalone: true}">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+</div>
+
+
+<tmd-view-tag [query]="query"></tmd-view-tag>

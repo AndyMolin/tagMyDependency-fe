@@ -11,7 +11,7 @@ export class AuthGuard extends KeycloakAuthGuard {
   isAccessAllowed(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
       if (!this.authenticated) {
-        this.keycloakAngular.login();
+        this.router.navigate(['/']);
         return;
       }
       // console.log('role restriction given at app-routing.module for this route', route.data.roles);
@@ -35,5 +35,9 @@ export class AuthGuard extends KeycloakAuthGuard {
       resolve(granted);
 
     });
+  }
+
+  public isAuthenticated(): boolean {
+    return this.authenticated;
   }
 }

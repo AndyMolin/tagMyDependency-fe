@@ -29,6 +29,10 @@ export class HttpService {
     return this.httpClient.delete(this.getFullURL(path), options);
   }
 
+  public deleteWithBody(path: string, body: any): Observable<any> {
+    return this.httpClient.request('delete', this.getFullURL(path), {body});
+  }
+
   public patch(path: string, body: any, options?: any): Observable<any> {
     return this.httpClient.patch(this.getFullURL(path), body, options);
   }

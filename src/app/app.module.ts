@@ -8,24 +8,33 @@ import {environment} from '../environments/environment';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AuthGuard} from './providers/auth-guard.service';
 import {HttpClientModule} from '@angular/common/http';
-import { HeaderComponent } from './components/header/header.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { HomeComponent } from './components/home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HeaderComponent} from './components/header/header.component';
+import {SearchResultsComponent} from './components/search-results/search-results.component';
+import {HomeComponent} from './components/home/home.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {CollapseContentDirective, CollapseDirective, CollapseItemDirective} from './collapse.directive';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { ProfileComponent } from './components/profile/profile.component';
-import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {ProfileComponent} from './components/profile/profile.component';
+import {SidenavListComponent} from './components/sidenav-list/sidenav-list.component';
 import {MatListModule} from '@angular/material/list';
-import { ViewTagComponent } from './components/view-tag/view-tag.component';
+import {ViewTagComponent} from './components/tags/view-tag/view-tag.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {TagsComponent} from './components/tags/tags.component';
+import { MySuggestionsComponent } from './components/suggestions/my-suggestions/my-suggestions.component';
+import { SearchTagsComponent } from './components/tags/search-tags/search-tags.component';
+import { PrivateTagsComponent } from './components/tags/private-tags/private-tags.component';
+import { SuggestionsComponent } from './components/suggestions/suggestions.component';
+import { SearchSuggestionsComponent } from './components/suggestions/search-suggestions/search-suggestions.component';
+import {MatCardModule} from '@angular/material/card';
 
 export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
   return (): Promise<any> => {
@@ -53,7 +62,13 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     CollapseItemDirective,
     ProfileComponent,
     SidenavListComponent,
-    ViewTagComponent
+    ViewTagComponent,
+    TagsComponent,
+    MySuggestionsComponent,
+    SearchTagsComponent,
+    PrivateTagsComponent,
+    SuggestionsComponent,
+    SearchSuggestionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +85,11 @@ export function kcInitializer(keycloak: KeycloakService): () => Promise<any> {
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule,
+    MatCardModule,
+    MatTooltipModule,
+    FormsModule,
   ],
   providers: [
     AuthGuard,
