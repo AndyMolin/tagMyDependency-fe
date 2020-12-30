@@ -1,11 +1,9 @@
-<!--<link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">-->
 <mat-sidenav-container class="example-container" autosize [hasBackdrop]="false">
   <mat-sidenav #sidenav mode="side">
     <tmd-sidenav-list (sidenavClose)="sidenav.close()"></tmd-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content>
 
-<!--    <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>-->
     <div class="site-container">
       <div class="header">
         <tmd-header (sidenavToggle)="sidenav.toggle()"></tmd-header>

@@ -14,7 +14,6 @@ import {DependencyService} from '../../../providers/dependency.service';
 export class SearchSuggestionsComponent implements OnInit {
   query = new BehaviorSubject('');
   dependencyTags: DependencyTagDTO[];
-  dependencyColumns: ['name', 'dependency', 'provider', 'actions'];
 
   constructor(private suggestionService: SuggestionService,
               private keycloakService: KeycloakService,

@@ -19,85 +19,31 @@
       <mat-card-title>{{tag.tag}}</mat-card-title>
       <mat-card-subtitle>{{tag.dependencyRef.name}}</mat-card-subtitle>
     </mat-card-header>
-    <!--    <mat-card-content>-->
-    <!--      <p>-->
-    <!--        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
-    <!--        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
-    <!--        bred for hunting.-->
-    <!--      </p>-->
-    <!--    </mat-card-content>-->
     <mat-card-actions>
-      <button [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="primary"
+      <button *ngIf="tag.vote !== 'like'" [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="primary"
               matTooltip="Likes"
               (click)="like(tag)">
-        <!-- <i class="material-icons-outlined">thumb_up</i>  -->
-        <mat-icon>thumb_up</mat-icon>
+        <i class="material-icons-outlined">thumb_up</i>
         {{tag.likes}}
       </button>
-      <button [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="warn"
+      <button *ngIf="tag.vote === 'like'" [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="primary"
+              matTooltip="Likes" [ngClass]="{'tag-suggestion-voted': tag.vote === 'like'}"
+              (click)="like(tag)">
+        <i class="material-icons-round">thumb_up</i>
+        {{tag.likes}}
+      </button>
+      <button *ngIf="tag.vote !== 'dislike'" [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="warn"
               matTooltip="Dislikes"
               (click)="dislike(tag)">
-        <mat-icon>thumb_down</mat-icon>
+        <i class="material-icons-outlined">thumb_down</i>
+        {{tag.dislikes}}
+      </button>
+      <button *ngIf="tag.vote === 'dislike'" [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="warn"
+              matTooltip="Likes" [ngClass]="{'tag-suggestion-voted': tag.vote === 'dislike'}"
+              (click)="dislike(tag)">
+        <i class="material-icons-round">thumb_down</i>
         {{tag.dislikes}}
       </button>
     </mat-card-actions>
   </mat-card>
 </div>
-
-<div class="dependency-container dependency-element-detail">
-  <table *ngIf="dependencyTags && dependencyTags.length" mat-table [dataSource]="dependencyTags"
-         multiTemplateDataRows class="mat-elevation-z8" style="width: 100%;">
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Tag</th>
-      <td mat-cell *matCellDef="let element"> {{element.tag}} </td>
-    </ng-container>
-
-    <!-- Dependency Column -->
-    <ng-container matColumnDef="dependency">
-      <th mat-header-cell *matHeaderCellDef> Dependency</th>
-      <td mat-cell *matCellDef="let element"> {{element.dependencyRef.name}} </td>
-    </ng-container>
-
-
-    <!-- Provider Column -->
-    <ng-container matColumnDef="provider">
-      <th mat-header-cell *matHeaderCellDef> Provider</th>
-      <td mat-cell *matCellDef="let element">
-        <img
-          [src]="dependencyService.getImageForDependencyProvider(element.dependencyRef.provider)"
-          width="50px"
-          height="50px">
-      </td>
-    </ng-container>
-
-    <!-- Actions Column -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions</th>
-      <td mat-cell *matCellDef="let element">
-        <div>
-          <button [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="primary"
-                  matTooltip="Likes"
-                  (click)="like(element)">
-            <mat-icon>thumb_up</mat-icon>
-            {{element.likes}}
-          </button>
-          <button [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="warn"
-                  matTooltip="Dislikes"
-                  (click)="dislike(element)">
-            <mat-icon>thumb_down</mat-icon>
-            {{element.dislikes}}
-          </button>
-        </div>
-      </td>
-    </ng-container>
-
-
-    <tr mat-header-row *matHeaderRowDef="dependencyColumns;sticky: true"></tr>
-    <tr mat-row *matRowDef="let element; columns: dependencyColumns;"
-        [ngClass]="{'tag-deprecated': element.deprecated}"></tr>
-  </table>
-</div>
-
-<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
