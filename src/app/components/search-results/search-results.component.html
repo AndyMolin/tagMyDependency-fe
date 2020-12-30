@@ -84,6 +84,6 @@
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="dependency-detail-row"></tr>
 </table>
 
-<mat-paginator [pageSize]="pageSize" [pageIndex]="pageNumber" (page)="changePage($event)" [length]="numberOfResults">
+<mat-paginator *ngIf="numberOfResults > 0" [pageSize]="pageSize" [pageIndex]="pageNumber" (page)="changePage($event)" [length]="numberOfResults">
 
 </mat-paginator>

@@ -30,6 +30,7 @@
       <button [disabled]="!keycloakService.getKeycloakInstance().authenticated" mat-stroked-button color="primary"
               matTooltip="Likes"
               (click)="like(tag)">
+        <!-- <i class="material-icons-outlined">thumb_up</i>  -->
         <mat-icon>thumb_up</mat-icon>
         {{tag.likes}}
       </button>
@@ -98,3 +99,5 @@
         [ngClass]="{'tag-deprecated': element.deprecated}"></tr>
   </table>
 </div>
+
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
