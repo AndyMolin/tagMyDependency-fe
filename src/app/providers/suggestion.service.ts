@@ -37,4 +37,8 @@ export class SuggestionService {
   public getMySuggestions(): Observable<any> {
     return this.httpService.get(`public/tag/suggestion/accepted`);
   }
+
+  public getMyRejectedSuggestions(): Observable<any> {
+    return this.httpService.get(`public/tag/suggestion/rejected`);
+  }
 }

@@ -1,3 +1,8 @@
+<h2 *ngIf="acceptedSuggestions.length > 0" style="margin: 5px">Accepted Suggestions</h2>
 <div *ngFor="let suggestion of acceptedSuggestions">
+  <pre>   {{suggestion.tag}} - {{suggestion.dependencyRef.name}} - {{suggestion.likes}} Likes - {{suggestion.dislikes}} Dislikes</pre>
+</div>
+<h2 *ngIf="rejectedSuggestions.length > 0" style="margin: 5px">Rejected Suggestions</h2>
+<div *ngFor="let suggestion of rejectedSuggestions">
   <pre>   {{suggestion.tag}} - {{suggestion.dependencyRef.name}} - {{suggestion.likes}} Likes - {{suggestion.dislikes}} Dislikes</pre>
 </div>

@@ -9,7 +9,7 @@ export interface DependencyTagDTO {
   tag: string;
   dependencyRef: DependencyRef;
   deprecated: boolean;
-  rejected: boolean;
+  rej: boolean;
   underReview: boolean;
   likes: number;
   dislikes: number;

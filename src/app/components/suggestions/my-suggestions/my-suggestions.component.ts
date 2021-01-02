@@ -9,6 +9,7 @@ import {DependencyTagDTO} from '../../../model/Tag';
 })
 export class MySuggestionsComponent implements OnInit {
   acceptedSuggestions: DependencyTagDTO[];
+  rejectedSuggestions: DependencyTagDTO[];
 
   constructor(private suggestionService: SuggestionService) {
   }
@@ -16,6 +17,7 @@ export class MySuggestionsComponent implements OnInit {
   ngOnInit(): void {
 
     this.suggestionService.getMySuggestions().subscribe(result => this.acceptedSuggestions = result);
+    this.suggestionService.getMyRejectedSuggestions().subscribe(result => this.rejectedSuggestions = result);
   }
 
 }

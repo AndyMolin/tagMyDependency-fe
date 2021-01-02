@@ -45,7 +45,7 @@
               <th mat-header-cell *matHeaderCellDef> Actions</th>
               <td mat-cell *matCellDef="let element">
                 <div>
-                  <button *ngIf="!element.deprecated && !element.underReview" mat-mini-fab color="basic"
+                  <button *ngIf="!element.deprecated && !element.underReview && !element.rej" mat-mini-fab color="basic"
                           aria-label="Suggest to the Community"
                           matTooltip="Suggest to the Community"
                           (click)="createSuggestion(element)">
