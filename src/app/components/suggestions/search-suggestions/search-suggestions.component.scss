@@ -50,12 +50,13 @@ tr.dependency-element-row:not(.dependency-expanded-row):active {
   background: grey;
 }
 .tag-card-header-image {
-  //background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
 
 .tag-card {
   max-width: 400px;
+  margin: 10px;
+  border: 1px solid;
 }
 
 .tag-suggestion-voted {

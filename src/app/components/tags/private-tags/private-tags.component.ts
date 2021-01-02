@@ -22,7 +22,7 @@ export class PrivateTagsComponent implements OnInit {
 
   defaultColumns: string[] = ['name', 'deps'];
   tagList: TagDTO[];
-  dependencyColumns: string[] = ['name', 'provider', 'actions', 'delete'];
+  dependencyColumns: string[] = ['name', 'provider', 'actions'];
   dependencyTags: any[] = [];
 
   // tslint:disable-next-line:variable-name
@@ -73,5 +73,6 @@ export class PrivateTagsComponent implements OnInit {
     this.dependencyService.createSuggestion(dependencyTagDTO.id).subscribe(
       value => console.log('successfully promoted!'),
       err => console.log('Not promoted!'));
+    window.location.reload();
   }
 }

@@ -31,6 +31,14 @@ export interface Dependency {
 })
 export class SearchResultsComponent implements OnInit {
 
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private httpService: HttpService,
+              private route: ActivatedRoute,
+              private keycloakService: KeycloakService,
+              private dependencyService: DependencyService) {
+  }
+
   searchForm: FormGroup;
   addTagForm: FormGroup;
 
@@ -42,17 +50,11 @@ export class SearchResultsComponent implements OnInit {
   pageSize = 20;
   pageNumber = 0;
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
-              private httpService: HttpService,
-              private route: ActivatedRoute,
-              private keycloakService: KeycloakService,
-              private dependencyService: DependencyService) {
-  }
+  provider = '';
 
   ngOnInit(): void {
     this.searchForm = this.formBuilder.group({
-      query: ['']
+      query: [''],
     });
     this.addTagForm = this.formBuilder.group({
       tag_name: ['']
@@ -72,11 +74,17 @@ export class SearchResultsComponent implements OnInit {
       }
     });
   }
-
   // tslint:disable-next-line:typedef
   searchButton() {
-    this.httpService.get(`public/dependency/search?query=${this.query}&providers=maven,npm&pageSize=${this.pageSize}&pageNumber=${this.pageNumber}`).subscribe(
+    if (this.query.startsWith('provider:')) {
+      const splitedQuery = this.query.split(' ');
+      this.provider = splitedQuery[0].split(':')[1];
+      this.query = splitedQuery[1];
+    }
+
+    this.httpService.get(`public/dependency/search?query=${this.query}&providers=${this.provider}&pageSize=${this.pageSize}&pageNumber=${this.pageNumber}`).subscribe(
       value => {
+        this.provider = '';
         this.numberOfResults = value.total;
         this.dependencyList = value.elements;
         console.log('total: ' + this.numberOfResults);
